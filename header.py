@@ -7,7 +7,7 @@ class Header:
         self.screen = pygame.display.get_surface()
     
     def change_algorithm_button(self):
-        button = Button('Cambiar Algoritmo', [20, 20, 300, 55], 35, offset = [5, 5])
+        button = Button('Cambiar Algoritmo', [21, 20, 300, 50], 35, offset = [5, 5])
         button.show(False)
     
     def manager(self):
