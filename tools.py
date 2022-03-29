@@ -1,12 +1,14 @@
+from header import Header
 from settings import *
 import pygame
 from random import randint
 
 class Event():
-    def __init__(self):
+    def __init__(self, header):
         self.isRunning = True
         self.shuffle = False
         self.go = False
+        self.header = header
 
     def event_manager(self):
         for event in pygame.event.get():
@@ -18,7 +20,13 @@ class Event():
                     self.shuffle = True
                 if event.key == pygame.K_SPACE:
                     self.go = True
-
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                pos = pygame.mouse.get_pos()
+                if self.header.get_position(pos, self.header.button1):
+                    self.header.button1_bool = True
+            
+            elif event.type == pygame.MOUSEBUTTONUP:
+                self.header.button1_bool = False
 
 class Set:
     def __init__(self, n = 100):

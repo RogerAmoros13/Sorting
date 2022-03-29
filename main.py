@@ -12,9 +12,9 @@ class Aplicacion:
         self.screen = pygame.display.set_mode((AMPLE, ALTURA))
         self.set = Set()
         self.draw = Draw(self.set.n)
-        self.event = Event()
         self.isRunning = True
         self.header = Header()
+        self.event = Event(self.header)
         
     
     def run(self):
