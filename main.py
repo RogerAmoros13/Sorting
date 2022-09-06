@@ -1,8 +1,8 @@
 import pygame 
 from settings import *
 from sort import exchanging as ex
-import time
-from tools import *
+from set import Set
+from event import Event
 from header import Header
 
 class Aplicacion:
@@ -20,7 +20,6 @@ class Aplicacion:
         while self.isRunning:
             self.event.event_manager()
             self.set.update()
-            self.header.manager()
             pygame.display.update()
 
 if __name__ == '__main__':

@@ -5,7 +5,6 @@ from settings import *
 Button1: Cambio de algoritmo
 """
 
-
 class Header:
     def __init__(self):
         self.screen = pygame.display.get_surface()

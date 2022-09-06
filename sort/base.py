@@ -1,4 +1,3 @@
-from tools import Set, Event
 import pygame
 import time
 
@@ -7,7 +6,7 @@ class Sort:
         self.arr = array
         self.n = len(array)
         self.set = set
-        self.event = Event()
+        # self.event = Event()
 
     def control(self):
         self.event.event_manager()
