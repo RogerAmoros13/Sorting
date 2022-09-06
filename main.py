@@ -17,8 +17,6 @@ class Aplicacion:
     
     def run(self):
         while self.isRunning:
-            print(self.set.go)
-            self.set.update()
             self.event.event_manager()
             pygame.display.update()
 

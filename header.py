@@ -10,15 +10,10 @@ class Header:
         self.screen = pygame.display.get_surface()
         self.set = set
         self.buttons = self._create_buttons()
-        self.current_algorithm = ''
+        self.algorithm = Bubble(self)
     
     def update(self):
-        for button in self.buttons:
-            button.show()
-            if button.active:
-                if button.type == "activate":
-                    button.active = False
-                button.activate_button()
+        self.set.update()
         self.display_current_algorithm()
     
     def _create_buttons(self):
@@ -69,7 +64,7 @@ class Header:
     
     def display_current_algorithm(self):
         font = pygame.font.SysFont('Arial', int(HEADER / 2.5))
-        text = font.render('Algoritmo: ' + self.current_algorithm, True, black)
+        text = font.render('Algoritmo: ' + self.algorithm.name, True, black)
         self.screen.blit(text, (AMPLE / 5, HEADER / 4.6))
 
 

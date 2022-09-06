@@ -23,10 +23,10 @@ purple = (221,160,221)
 white_dirty = (244, 246, 247)
 
 
-AVAILABLE_ALGORITHMS = {
-    "bubble": Bubble(),
-    "cocktailshake": CocktailShake(),
-    "gnome": Gnome(),
-    "oddeven": OddEven(),
-    "comb11": Comb11(),
-}
+# AVAILABLE_ALGORITHMS = {
+#     "bubble": Bubble(),
+#     "cocktailshake": CocktailShake(),
+#     "gnome": Gnome(),
+#     "oddeven": OddEven(),
+#     "comb11": Comb11(),
+# }

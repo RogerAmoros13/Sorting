@@ -9,7 +9,6 @@ class Set:
         self.set = [SetElement(i) for i in range(n)]
         self.shuffle = False
         self.shuffle_step = 0
-        self.algorithm = Bubble()
         self.go = False
 
         self.screen = pygame.display.get_surface()
@@ -25,8 +24,6 @@ class Set:
             else:
                 self.shuffle_step = 0
                 self.shuffle = False
-        if self.go:
-            pass
         self.draw_background()
         self.draw_set()
 
