@@ -1,3 +1,6 @@
+# from Sorting.sort.exchanging import Bubble, CocktailShake
+
+
 resolution = {'SD': [640, 480], 'HD': [1280, 720], 'Full HD': [1900, 1020]}
 # def settings(mode):
 ALTURA, AMPLE = 1000, 1920
@@ -18,3 +21,9 @@ red = (220,20,60)
 maroon = (128,0,0)
 purple = (221,160,221)
 white_dirty = (244, 246, 247)
+
+
+# avalilable_algorithms = {
+#     "bubble": Bubble(),
+#     "cocktailshake": CocktailShake()
+# }
