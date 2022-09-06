@@ -1,4 +1,4 @@
-# from Sorting.sort.exchanging import Bubble, CocktailShake
+from sort.exchanging import *
 
 
 resolution = {'SD': [640, 480], 'HD': [1280, 720], 'Full HD': [1900, 1020]}
@@ -23,7 +23,10 @@ purple = (221,160,221)
 white_dirty = (244, 246, 247)
 
 
-# avalilable_algorithms = {
-#     "bubble": Bubble(),
-#     "cocktailshake": CocktailShake()
-# }
+AVAILABLE_ALGORITHMS = {
+    "bubble": Bubble(),
+    "cocktailshake": CocktailShake(),
+    "gnome": Gnome(),
+    "oddeven": OddEven(),
+    "comb11": Comb11(),
+}

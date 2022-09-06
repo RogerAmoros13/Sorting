@@ -1,4 +1,5 @@
 from settings import *
+from sort.exchanging import *
 import pygame
 from random import randint
 
@@ -8,7 +9,7 @@ class Set:
         self.set = [SetElement(i) for i in range(n)]
         self.shuffle = False
         self.shuffle_step = 0
-        self.algorithm = False
+        self.algorithm = Bubble()
         self.go = False
 
         self.screen = pygame.display.get_surface()

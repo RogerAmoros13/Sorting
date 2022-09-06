@@ -2,11 +2,10 @@ import pygame
 import time
 
 class Sort:
-    def __init__(self, array, set):
-        self.arr = array
-        self.n = len(array)
+    def __init__(self, set, name):
+        self.n = len(set.n)
         self.set = set
-        # self.event = Event()
+        self.name = name
 
     def control(self):
         self.event.event_manager()

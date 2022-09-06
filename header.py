@@ -6,29 +6,51 @@ Button1: Cambio de algoritmo
 """
 
 class Header:
-    def __init__(self):
+    def __init__(self, set):
         self.screen = pygame.display.get_surface()
+        self.set = set
         self.buttons = self._create_buttons()
         self.current_algorithm = ''
-
     
-    def manager(self):
+    def update(self):
         for button in self.buttons:
             button.show()
             if button.active:
-                if button.name == "menu":
-                    self.display_menu()
+                if button.type == "activate":
+                    button.active = False
+                button.activate_button()
         self.display_current_algorithm()
     
     def _create_buttons(self):
         button_list = self.create_button(
             [
                 {
-                    "name": "menu",
+                    "name": "menu_algoritm",
                     "text": "Cambiar Algoritmo",
                     "coordenates": [21, 20, 300, 50],
-                    "text_size": 35,
-                    "offset": [5, 5]
+                    "type": "menu",
+                    "menu": Menu(
+                        'Algorimos disponibles', 
+                        [AMPLE / 4, ALTURA / 4, AMPLE / 2, ALTURA / 2], 
+                        40
+                    )
+                },
+                {
+                    "name": "start_algorithm",
+                    "text": "Start",
+                    "color1": green,
+                    "coordenates": [900, 20, 100, 50],
+                    "type": "activate",
+                    "bool_field": "go",
+                    "_class": self.set
+                },
+                {
+                    "name": "end_algorithm",
+                    "text": "Shuffle",
+                    "coordenates": [770, 20, 120, 50],
+                    "type": "activate",
+                    "bool_field": "shuffle",
+                    "_class": self.set
                 }
             ]
         )
@@ -50,10 +72,6 @@ class Header:
         text = font.render('Algoritmo: ' + self.current_algorithm, True, black)
         self.screen.blit(text, (AMPLE / 5, HEADER / 4.6))
 
-    def display_menu(self):
-        self.menu1 = Menu('Algorimos disponibles', [AMPLE / 4, ALTURA / 4, AMPLE / 2, ALTURA / 2], 40).background()
-
-
 
 class Button:
     def __init__(self, vals):
@@ -65,9 +83,14 @@ class Button:
         self.color1 = vals.get("color1", white_dirty)
         self.color2 = vals.get("color2", blue)
         self.border_radius = vals.get("border_radius", 10)
-        self.offset = vals.get("offset", [0,0])
+        self.offset = vals.get("offset", [5,5])
         self.active = False
         self.pressed = False
+        self.type = vals.get("type", "null")
+        self.menu = vals.get("menu", False)
+        self._class = vals.get("_class", False)
+        self.bool_field = vals.get("bool_field", False)
+
 
     def show(self):
         font = pygame.font.SysFont('Arial', self.size_text)
@@ -80,6 +103,11 @@ class Button:
         text_posx, text_posy = self.coord[0] + self.offset[0], self.coord[1] + self.offset[1]
         self.screen.blit(code, (text_posx, text_posy))
     
+    def activate_button(self):
+        if self.type == "menu":
+            self.menu.update()
+        elif self.type == "activate":
+            setattr(self._class, self.bool_field, True)
 
 class Menu:
     def __init__(self, title, coord, size_text, color = grey_menu, border_radius = 10):
@@ -90,7 +118,10 @@ class Menu:
         self.color = color
         self.border_radius = border_radius
 
-    def background(self):
+    def update(self):
+        self.draw_background()
+
+    def draw_background(self):
         pygame.draw.rect(self.screen, self.color, self.coord, border_radius=self.border_radius)
         pygame.draw.rect(self.screen, black, self.coord, border_radius=self.border_radius, width=2)
 

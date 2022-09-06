@@ -1,8 +1,8 @@
 from sort.base import Sort
 
 class Bubble(Sort):
-    def __init__(self, array):
-        Sort.__init__(self, array)
+    def __init__(self, set, header):
+        Sort.__init__(self, set, header, "Bubble")
 
     def sort(self):
         iters, swaps = 0, 0
@@ -22,7 +22,7 @@ class Bubble(Sort):
 
 class CocktailShake(Sort):
     def __init__(self, array):
-        Sort.__init__(self, array)
+        Sort.__init__(self, array, "CocktailShake")
 
     def sort(self):
         iters, swaps = 0, 0
@@ -56,7 +56,7 @@ class CocktailShake(Sort):
 
 class Gnome(Sort):
     def __init__(self, array):
-        Sort.__init__(self, array)
+        Sort.__init__(self, array, "Gnome")
 
     def sort(self):
         i = 1
@@ -75,10 +75,9 @@ class Gnome(Sort):
         test = self.check()
         return test
 
-
 class OddEven(Sort):
     def __init__(self, array):
-        Sort.__init__(self, array)
+        Sort.__init__(self, array, "OddEven")
 
     def sort(self):
         sorted = False
@@ -103,11 +102,9 @@ class OddEven(Sort):
         test = self.check()
         return test
     
-
-
 class Comb11(Sort):
     def __init__(self, array):
-        Sort.__init__(self, array)
+        Sort.__init__(self, array, "Comb11")
 
     def sort(self):
         gap = self.n

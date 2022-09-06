@@ -1,13 +1,9 @@
-from settings import *
 import pygame
-from random import randint
 
 class Event():
-    def __init__(self, header, set):
-        self.isRunning = True
+    def __init__(self, header):
         self.shuffle = False
         self.header = header
-        self.set = set
 
     def event_manager(self):
         for event in pygame.event.get():
@@ -15,9 +11,9 @@ class Event():
                 pygame.QUIT()
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_r:
-                    self.set.shuffle = True
+                    self.header.set.shuffle = True
                 if event.key == pygame.K_SPACE:
-                    self.set.go = True
+                    self.header.set.go = True
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 pos = pygame.mouse.get_pos()
                 for button in self.header.buttons:
@@ -29,4 +25,4 @@ class Event():
                     if button.pressed:
                         button.active = True
                     button.pressed = False
-        self.header.manager()
+        self.header.update()
