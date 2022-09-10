@@ -13,7 +13,13 @@ class Header:
         self.algorithm = Bubble(self)
     
     def update(self):
-        self.set.update()
+        self.set.update(self.algorithm)
+        for button in self.buttons:
+            button.show()
+            if button.active:
+                if button.type == "activate":
+                    button.active = False
+                button.activate_button()
         self.display_current_algorithm()
     
     def _create_buttons(self):

@@ -1,17 +1,40 @@
 from sort.base import Sort
+import time
 
 class Bubble(Sort):
     def __init__(self, header):
         Sort.__init__(self, header, "Bubble")
+        self.i = 0
+        self.j = 0
+        self.stop  = False
 
-    def sort(self):
-        for i in range(self.n):
-            for j in range(self.n - i - 1):
-                self.header.set.set[j].color = (220,20,60)
-                self.header.set.set[j + 1].color = (220,20,60)
-                if self.header.set.set[j].height > self.header.set.set[j + 1].height:
-                    self.header.set.set[j].height, self.header.set.set[j + 1].height = self.header.set.set[j + 1].height, self.header.set.set[j].height
-                    self.header.set.update()
+    def sort(self, array):
+        if not self.stop:
+            if array.set[self.j] > array.set[self.j + 1]:
+                array.set[self.j].height, array.set[self.j + 1].height = array.set[self.j + 1].height, array.set[self.j].height
+            self.j += 1
+            if self.j - self.n + self.i + 1 == 0:
+                self.i += 1
+                self.j = 0
+            if self.i == self.n - 1:
+                self.stop = True
+                self.i = 0
+                self.j = 0
+            return False
+        return True
+        
+        time.sleep(0.1)
+        # for i in range(self.n):
+        #     for j in range(self.n - i - 1):
+        #         if self.header.set.set[j].height > self.header.set.set[j + 1].height:
+        #             self.header.set.set[j].height, self.header.set.set[j + 1].height = self.header.set.set[j + 1].height, self.header.set.set[j].height
+        #             self.last_iter[1] 
+        #             return
+        #         self.header.set.set[j].color = (220,20,60)
+        #         self.header.set.set[j + 1].color = (220,20,60)
+                
+
+
 # class CocktailShake(Sort):
 #     def __init__(self, array):
 #         Sort.__init__(self, array, "CocktailShake")
@@ -121,4 +144,3 @@ class Bubble(Sort):
 #                 self.update()
         
 #         test = self.check()
-#         return test

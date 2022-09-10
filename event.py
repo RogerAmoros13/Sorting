@@ -25,11 +25,4 @@ class Event():
                     if button.pressed:
                         button.active = True
                     button.pressed = False
-        for button in self.header.buttons:
-            button.show()
-        if button.active:
-            if button.type == "activate":
-                button.active = False
-            button.activate_button()
-        if self.header.set.go:
-            self.header.algorithm.sort()
+        self.header.update()
