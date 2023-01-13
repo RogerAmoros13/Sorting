@@ -1,3 +1,6 @@
+from sort.exchanging import *
+
+
 resolution = {'SD': [640, 480], 'HD': [1280, 720], 'Full HD': [1900, 1020]}
 # def settings(mode):
 ALTURA, AMPLE = 1000, 1920
@@ -18,3 +21,12 @@ red = (220,20,60)
 maroon = (128,0,0)
 purple = (221,160,221)
 white_dirty = (244, 246, 247)
+
+
+# AVAILABLE_ALGORITHMS = {
+#     "bubble": Bubble(),
+#     "cocktailshake": CocktailShake(),
+#     "gnome": Gnome(),
+#     "oddeven": OddEven(),
+#     "comb11": Comb11(),
+# }
